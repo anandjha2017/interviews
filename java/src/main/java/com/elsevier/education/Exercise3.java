@@ -1,7 +1,5 @@
 package com.elsevier.education;
 
-import java.util.*;
-
 /**
 
 TODO Examine the failing test case for this class.
@@ -13,15 +11,15 @@ public class Exercise3 {
 
 	public static class Person {
 	
-		private static Random generator = new java.util.Random();
 		private Integer id;
 		
 		public Person(int newId) {
 			id = newId;
 		}
-		
+		//HashCode should not return random number for the same state of the object
+		//This can break equals & hashcode contracts
 		public int hashCode() {
-			return id * generator.nextInt();
+			return id;
 		}
 		
 		public boolean equals(Object other) {
